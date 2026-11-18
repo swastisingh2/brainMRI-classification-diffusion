@@ -1,0 +1,18 @@
+{
+  "seed": 42,
+  "target_ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "algorithm": "SHA256(seed:group) order within class; round 15% groups per holdout",
+  "images": 3064,
+  "groups": 209,
+  "original_patient_ids": 233,
+  "overlap_checks": "passed: groups, patient IDs, file paths",
+  "near_duplicate_audit": "pending; not checked by this script",
+  "package_version": "splits_v1_provisional",
+  "path_format": "relative_path uses forward slashes relative to DATA_ROOT",
+  "original_manifest_sha256": "81242462f1d6fa667e567a871ecb3aaff2200b87f8bf8c571103683ac31296e6",
+  "portable_input_sha256": "b7a23ccb8ea2558bf027f372c25dd07428c937479aded8cf5bd01bdb0ea8b049"
+}

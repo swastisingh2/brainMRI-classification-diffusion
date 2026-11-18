@@ -1,0 +1,364 @@
+relative_path,filename,patient_id,label,class_name,prefix,split_group,grouping_status,grouping_note,split
+brainTumorDataPublic_1-766/113.mat,113.mat,108590,1,meningioma,,108590,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/114.mat,114.mat,108590,1,meningioma,,108590,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/119.mat,119.mat,109411,1,meningioma,,109411,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/128.mat,128.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/129.mat,129.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/130.mat,130.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/131.mat,131.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/142.mat,142.mat,112252,1,meningioma,,112252,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/143.mat,143.mat,112252,1,meningioma,,112252,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/203.mat,203.mat,99288,1,meningioma,,99288,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/281.mat,281.mat,105374,1,meningioma,,105374,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/282.mat,282.mat,105374,1,meningioma,,105374,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/286.mat,286.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/287.mat,287.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/288.mat,288.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/289.mat,289.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/294.mat,294.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/295.mat,295.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/296.mat,296.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/334.mat,334.mat,108590,1,meningioma,,108590,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/335.mat,335.mat,108590,1,meningioma,,108590,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/340.mat,340.mat,109411,1,meningioma,,109411,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/353.mat,353.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/354.mat,354.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/355.mat,355.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/356.mat,356.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/370.mat,370.mat,112252,1,meningioma,,112252,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/371.mat,371.mat,112252,1,meningioma,,112252,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/437.mat,437.mat,99288,1,meningioma,,99288,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/450.mat,450.mat,100639,1,meningioma,,100639,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/451.mat,451.mat,100639,1,meningioma,,100639,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/517.mat,517.mat,105374,1,meningioma,,105374,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/520.mat,520.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/521.mat,521.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/522.mat,522.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/527.mat,527.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/528.mat,528.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/529.mat,529.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/56.mat,56.mat,105374,1,meningioma,,105374,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/560.mat,560.mat,107946,1,meningioma,,107946,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/561.mat,561.mat,107946,1,meningioma,,107946,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/562.mat,562.mat,107946,1,meningioma,,107946,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/563.mat,563.mat,107946,1,meningioma,,107946,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/57.mat,57.mat,105374,1,meningioma,,105374,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/571.mat,571.mat,108590,1,meningioma,,108590,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/572.mat,572.mat,108590,1,meningioma,,108590,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/579.mat,579.mat,109411,1,meningioma,,109411,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/584.mat,584.mat,110808,1,meningioma,,110808,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/585.mat,585.mat,110808,1,meningioma,,110808,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/589.mat,589.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/590.mat,590.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/591.mat,591.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/592.mat,592.mat,111366,1,meningioma,,111366,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/60.mat,60.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/606.mat,606.mat,112252,1,meningioma,,112252,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/607.mat,607.mat,112252,1,meningioma,,112252,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/61.mat,61.mat,105937,1,meningioma,,105937,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/635.mat,635.mat,113614,1,meningioma,,113614,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/636.mat,636.mat,113614,1,meningioma,,113614,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/637.mat,637.mat,113614,1,meningioma,,113614,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/638.mat,638.mat,113614,1,meningioma,,113614,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/67.mat,67.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/68.mat,68.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/69.mat,69.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/696.mat,696.mat,99288,1,meningioma,,99288,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/70.mat,70.mat,106442,1,meningioma,,106442,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/709.mat,709.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/710.mat,710.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/711.mat,711.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/722.mat,722.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/723.mat,723.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/724.mat,724.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/725.mat,725.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/726.mat,726.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/727.mat,727.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/728.mat,728.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/761.mat,761.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/762.mat,762.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/763.mat,763.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/764.mat,764.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/765.mat,765.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1-766/766.mat,766.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1533.mat,1533.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1534.mat,1534.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1535.mat,1535.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1536.mat,1536.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1537.mat,1537.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1538.mat,1538.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1539.mat,1539.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1540.mat,1540.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1541.mat,1541.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1542.mat,1542.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1543.mat,1543.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1544.mat,1544.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1557.mat,1557.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1558.mat,1558.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1559.mat,1559.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1560.mat,1560.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1561.mat,1561.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1562.mat,1562.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1665.mat,1665.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1666.mat,1666.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1667.mat,1667.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1668.mat,1668.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1669.mat,1669.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1670.mat,1670.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1671.mat,1671.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1684.mat,1684.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1685.mat,1685.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1686.mat,1686.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1687.mat,1687.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1688.mat,1688.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1689.mat,1689.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1690.mat,1690.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1691.mat,1691.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1721.mat,1721.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1722.mat,1722.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1723.mat,1723.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1724.mat,1724.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1725.mat,1725.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1726.mat,1726.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1727.mat,1727.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1728.mat,1728.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1729.mat,1729.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1730.mat,1730.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1731.mat,1731.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1732.mat,1732.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1733.mat,1733.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1748.mat,1748.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1749.mat,1749.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1750.mat,1750.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1751.mat,1751.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1752.mat,1752.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1753.mat,1753.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/1987.mat,1987.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1988.mat,1988.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1989.mat,1989.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1990.mat,1990.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1991.mat,1991.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1992.mat,1992.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1993.mat,1993.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1994.mat,1994.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1995.mat,1995.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1996.mat,1996.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/1997.mat,1997.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_1533-2298/2005.mat,2005.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2006.mat,2006.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2007.mat,2007.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2008.mat,2008.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2009.mat,2009.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2010.mat,2010.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2011.mat,2011.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2061.mat,2061.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2062.mat,2062.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2063.mat,2063.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2064.mat,2064.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2100.mat,2100.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2101.mat,2101.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2102.mat,2102.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2103.mat,2103.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2109.mat,2109.mat,MR056144,2,glioma,MR056144,MR056144,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2110.mat,2110.mat,MR056144,2,glioma,MR056144,MR056144,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2111.mat,2111.mat,MR056144,2,glioma,MR056144,MR056144,original_id,Original patient ID retained.,val
+brainTumorDataPublic_1533-2298/2241.mat,2241.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2326.mat,2326.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2327.mat,2327.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2328.mat,2328.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2329.mat,2329.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2330.mat,2330.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2331.mat,2331.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2332.mat,2332.mat,MR026175C,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2342.mat,2342.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2343.mat,2343.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2344.mat,2344.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2345.mat,2345.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2346.mat,2346.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2347.mat,2347.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2348.mat,2348.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2350.mat,2350.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2351.mat,2351.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2352.mat,2352.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2353.mat,2353.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2354.mat,2354.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2355.mat,2355.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2356.mat,2356.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2357.mat,2357.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2358.mat,2358.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2359.mat,2359.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2360.mat,2360.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2361.mat,2361.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2487.mat,2487.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2488.mat,2488.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2489.mat,2489.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2490.mat,2490.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2491.mat,2491.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2492.mat,2492.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2493.mat,2493.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2494.mat,2494.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2495.mat,2495.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2499.mat,2499.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2500.mat,2500.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2501.mat,2501.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2502.mat,2502.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2503.mat,2503.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2504.mat,2504.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2505.mat,2505.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2506.mat,2506.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2507.mat,2507.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2508.mat,2508.mat,MR026175E,2,glioma,MR026175,MR026175,automatic_conservative_prefix_group,Automatically grouped by shared MR numeric prefix to reduce potential leakage; patient identity unverified.,val
+brainTumorDataPublic_2299-3064/2546.mat,2546.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2547.mat,2547.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2548.mat,2548.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2549.mat,2549.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2589.mat,2589.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2590.mat,2590.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2591.mat,2591.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2592.mat,2592.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2593.mat,2593.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2594.mat,2594.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2821.mat,2821.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2925.mat,2925.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2926.mat,2926.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2927.mat,2927.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2928.mat,2928.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2929.mat,2929.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2930.mat,2930.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2931.mat,2931.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2932.mat,2932.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2933.mat,2933.mat,MR051586,2,glioma,MR051586,MR051586,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2975.mat,2975.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2976.mat,2976.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2977.mat,2977.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2978.mat,2978.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2979.mat,2979.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2980.mat,2980.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2981.mat,2981.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/2982.mat,2982.mat,MR052550,2,glioma,MR052550,MR052550,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3009.mat,3009.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3010.mat,3010.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3011.mat,3011.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3012.mat,3012.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3013.mat,3013.mat,MR054875,2,glioma,MR054875,MR054875,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3020.mat,3020.mat,MR056144,2,glioma,MR056144,MR056144,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3021.mat,3021.mat,MR056144,2,glioma,MR056144,MR056144,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3031.mat,3031.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3032.mat,3032.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3033.mat,3033.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3034.mat,3034.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3035.mat,3035.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3036.mat,3036.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3037.mat,3037.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_2299-3064/3038.mat,3038.mat,MR033389B,2,glioma,MR033389,MR033389B,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1034.mat,1034.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1059.mat,1059.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1060.mat,1060.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1061.mat,1061.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1062.mat,1062.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1063.mat,1063.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1064.mat,1064.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1107.mat,1107.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1108.mat,1108.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1109.mat,1109.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1110.mat,1110.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1111.mat,1111.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1118.mat,1118.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1119.mat,1119.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1120.mat,1120.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1121.mat,1121.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1122.mat,1122.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1123.mat,1123.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1166.mat,1166.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1167.mat,1167.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1168.mat,1168.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1194.mat,1194.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1195.mat,1195.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1196.mat,1196.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1197.mat,1197.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1230.mat,1230.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1231.mat,1231.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1232.mat,1232.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1238.mat,1238.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1239.mat,1239.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1240.mat,1240.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1241.mat,1241.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1295.mat,1295.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1296.mat,1296.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1297.mat,1297.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1298.mat,1298.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1299.mat,1299.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1300.mat,1300.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1310.mat,1310.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1311.mat,1311.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1312.mat,1312.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1313.mat,1313.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1314.mat,1314.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1315.mat,1315.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1316.mat,1316.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1348.mat,1348.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1349.mat,1349.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1350.mat,1350.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1351.mat,1351.mat,104019,3,pituitary,,104019,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1352.mat,1352.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1353.mat,1353.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1354.mat,1354.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1355.mat,1355.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1356.mat,1356.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1357.mat,1357.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1358.mat,1358.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1359.mat,1359.mat,104558,3,pituitary,,104558,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1374.mat,1374.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1375.mat,1375.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1376.mat,1376.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1377.mat,1377.mat,105187,3,pituitary,,105187,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1483.mat,1483.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1484.mat,1484.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1485.mat,1485.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1486.mat,1486.mat,102648,3,pituitary,,102648,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1498.mat,1498.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1499.mat,1499.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1500.mat,1500.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1501.mat,1501.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1502.mat,1502.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1503.mat,1503.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1504.mat,1504.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/1505.mat,1505.mat,103478,3,pituitary,,103478,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/767.mat,767.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/779.mat,779.mat,112027,2,glioma,,112027,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/780.mat,780.mat,112027,2,glioma,,112027,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/792.mat,792.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/793.mat,793.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/794.mat,794.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/795.mat,795.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/796.mat,796.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/797.mat,797.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/798.mat,798.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/837.mat,837.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/838.mat,838.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/839.mat,839.mat,102075,2,glioma,,102075,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/840.mat,840.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/841.mat,841.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/842.mat,842.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/843.mat,843.mat,103148,2,glioma,,103148,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/865.mat,865.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/866.mat,866.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/867.mat,867.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/868.mat,868.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/869.mat,869.mat,88670,2,glioma,,88670,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/918.mat,918.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/919.mat,919.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/920.mat,920.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/921.mat,921.mat,105936,3,pituitary,,105936,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/946.mat,946.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/947.mat,947.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/948.mat,948.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/949.mat,949.mat,107743,3,pituitary,,107743,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/976.mat,976.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/977.mat,977.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/978.mat,978.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/979.mat,979.mat,110993,3,pituitary,,110993,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/986.mat,986.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/987.mat,987.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/988.mat,988.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val
+brainTumorDataPublic_767-1532/989.mat,989.mat,111125,3,pituitary,,111125,original_id,Original patient ID retained.,val

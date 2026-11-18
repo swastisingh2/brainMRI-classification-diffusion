@@ -1,0 +1,10 @@
+split,class_name,images,groups
+train,meningioma,537,58
+train,glioma,1010,45
+train,pituitary,646,44
+val,meningioma,66,12
+val,glioma,153,10
+val,pituitary,144,9
+test,meningioma,105,12
+test,glioma,263,10
+test,pituitary,140,9
