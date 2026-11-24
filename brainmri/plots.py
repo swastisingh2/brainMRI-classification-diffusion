@@ -1,4 +1,12 @@
-"""Static PNG figures for run folders and summaries (matplotlib, headless)."""
+"""Static PNG figures for run folders and summaries (matplotlib, headless).
+
+plot_curves     -> <run>/curves.png        loss, accuracy, macro-F1 per epoch (train vs validation)
+plot_confusion  -> <run>/confusion_*.png   confusion matrix, colour = row share, text = count + share
+plot_summary    -> summary/summary_*.png   mean +/- std per experiment, each seed as a dot
+
+"Agg" is a non-interactive backend so plots can be saved on machines without a display (cluster nodes).
+The colours are a colour-blind-checked palette; train is always blue and validation always orange.
+"""
 from __future__ import annotations
 
 import matplotlib
@@ -20,6 +28,7 @@ BLUES = LinearSegmentedColormap.from_list(
 
 
 def _style(ax):
+    # Shared look: light background, no top/right box lines, faint horizontal grid behind the data.
     ax.set_facecolor(SURFACE)
     for side in ("top", "right"):
         ax.spines[side].set_visible(False)
@@ -46,6 +55,7 @@ def plot_curves(history: list[dict], best_epoch: int, path, title: str):
             ax.plot(ep, ys, color=color, linewidth=2, label=label)
             ax.annotate(label, (ep[-1], ys[-1]), xytext=(4, 0), textcoords="offset points",
                         color=INK2, fontsize=9, va="center")
+        # Dashed line = the epoch whose checkpoint was kept (best validation macro-F1).
         ax.axvline(best_epoch, color=MUTED, linewidth=1, linestyle="--")
         ax.set_title(name, color=INK, fontsize=11, loc="left")
         ax.set_xlabel("epoch", color=INK2, fontsize=9)
@@ -62,6 +72,8 @@ def plot_curves(history: list[dict], best_epoch: int, path, title: str):
 
 def plot_confusion(cm, path, title: str):
     """Row-normalised colour (recall per true class) with raw counts printed in each cell."""
+    # Colour by the share of each TRUE class (row), so a small class's errors are as visible as a large
+    # class's: 45 errors out of 537 meningiomas shows as 8%, not as a faint cell next to 972 gliomas.
     cm = np.asarray(cm)
     row = cm.sum(axis=1, keepdims=True)
     frac = np.divide(cm, row, out=np.zeros_like(cm, dtype=float), where=row > 0)

@@ -30,6 +30,8 @@ a = p.parse_args()
 out = a.results / "summary"
 out.mkdir(parents=True, exist_ok=True)
 
+# ---- collect finished runs: every results/<run>/ folder with a metrics.json. Smoke tests and unfinished
+# runs are skipped so they never enter the tables.
 runs = []
 for mf in sorted(a.results.glob("*/metrics.json")):
     cfg = json.loads((mf.parent / "config.json").read_text())
@@ -48,6 +50,7 @@ metrics = ["accuracy", "macro_f1"] + [f"recall_{c}" for c in CLASS_NAMES]
 
 
 def get(m, k):
+    # One validation metric from a run's metrics.json: "accuracy", "macro_f1" or "recall_<class>".
     return m["val"]["per_class"][k[7:]]["recall"] if k.startswith("recall_") else m["val"][k]
 
 
@@ -57,6 +60,7 @@ for exp in sorted(by_exp):
     r = {"exp": exp, "n_seeds": len(items), "seeds": " ".join(str(c["seed"]) for c, _ in items)}
     for k in metrics:
         v = np.array([get(m, k) for _, m in items])
+        # std uses ddof=1 (sample standard deviation), the usual choice for a handful of seeds.
         r.update({f"{k}_mean": round(v.mean(), 4), f"{k}_std": round(v.std(ddof=1) if len(v) > 1 else 0.0, 4),
                   f"{k}_min": round(v.min(), 4), f"{k}_max": round(v.max(), 4)})
     rows.append(r)
@@ -74,6 +78,8 @@ if rows:
                      f"{label}: mean ± std over seeds")
 
 # ---- CV runs: pool out-of-fold predictions across folds
+# Each fold run predicted ~1/5 of the training images; together the 5 folds cover all 2,193 exactly once.
+# The pooled file (cv_<exp>_seed<s>_oof_predictions.csv) is the input to make_synthetic_plan.py.
 by_cv = defaultdict(dict)
 for cfg, m, d in runs:
     if cfg["fold"] >= 0 and (d / "predictions_oof.csv").exists():

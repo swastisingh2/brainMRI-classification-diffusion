@@ -46,6 +46,7 @@ p.add_argument("--prompt_template", default=PROMPT_TEMPLATE)
 p.add_argument("--min_gpu_gb", type=float, default=0.0)
 a = p.parse_args()
 
+# ---- load the plan and check every source is a training image (leakage guard)
 device = pick_device(a.min_gpu_gb)
 plan = list(csv.DictReader(open(a.plan)))
 if a.limit:
@@ -58,26 +59,33 @@ if not np.all(cache.split[src_idx] == "train"):
 labels = np.array([int(r["label"]) for r in plan])
 prompts = class_prompts(a.prompt_template)
 
+# ---- generate in batches
 t2i, i2i = load_pipelines(a.model_id, str(a.lora_dir), device)
 out_imgs = np.zeros((len(plan), a.out_size, a.out_size), dtype=np.uint8)
 t0 = time.time()
 for s in range(0, len(plan), a.batch_size):
     rows = range(s, min(s + a.batch_size, len(plan)))
+    # One random generator per image, seeded by its plan row: image 57 always gets the same noise, whatever
+    # the batch size, so any single image can be regenerated exactly.
     gens = [torch.Generator(device=device).manual_seed(a.seed + int(plan[i]["row"])) for i in rows]
     pr = [prompts[labels[i]] for i in rows]
     with torch.inference_mode():
         if a.mode == "txt2img":
             res = t2i(pr, num_inference_steps=a.steps, guidance_scale=a.guidance, generator=gens, output_type="pt")
         else:
+            # img2img: start from the source image noised to `strength` and denoise with the class prompt.
+            # guidance_scale = classifier-free guidance: how strongly to follow the prompt (5 is moderate).
             init = (gray_uint8_to_sd(cache.images[src_idx[list(rows)]]) + 1) / 2  # pipeline wants [0, 1]
             res = i2i(pr, image=init.to(device, torch.float16), strength=a.strength, num_inference_steps=a.steps,
                       guidance_scale=a.guidance, generator=gens, output_type="pt")
+    # 512 px RGB output -> 256 px grayscale uint8, the same format as the classifier cache
     out_imgs[list(rows)] = sd_to_gray_uint8(res.images, a.out_size)
     done = rows[-1] + 1
     if done % (a.batch_size * 10) == 0 or done == len(plan):
         rate = (time.time() - t0) / done
         print(f"{done}/{len(plan)}  {rate:.2f}s/img  eta {(len(plan) - done) * rate / 60:.0f} min", flush=True)
 
+# ---- save the set (.npz, read by train_classifier.py --synthetic) and its settings (.json)
 a.out.parent.mkdir(parents=True, exist_ok=True)
 np.savez_compressed(a.out.with_suffix(".npz"), images=out_imgs, labels=labels,
                     source_paths=np.array([r["source_path"] for r in plan]), rows=np.array([int(r["row"]) for r in plan]))
@@ -89,7 +97,8 @@ meta = {**{k: (str(v) if isinstance(v, Path) else v) for k, v in vars(a).items()
         "finished": datetime.now().isoformat(timespec="seconds")}
 a.out.with_suffix(".json").write_text(json.dumps(meta, indent=2))
 
-# Preview: for each class, up to 6 pairs of (source, synthetic)
+# Preview: for each class, up to 6 pairs of (source, synthetic), for a quick visual check of realism and of
+# how far the output moved from its source at this strength.
 import matplotlib  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402

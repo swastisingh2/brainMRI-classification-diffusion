@@ -33,6 +33,8 @@ p.add_argument("--seed", type=int, default=0)
 p.add_argument("--out", type=Path, required=True)
 a = p.parse_args()
 
+# ---- read the pooled out-of-fold predictions: one row per training image, with its true label, the CV
+# model's prediction, and the probability that model gave to each class.
 rows = list(csv.DictReader(open(a.oof_csv)))
 paths = np.array([r["relative_path"] for r in rows])
 y = np.array([int(r["label"]) for r in rows])
@@ -40,22 +42,28 @@ pred = np.array([int(r["pred"]) for r in rows])
 p_true = np.array([float(r[f"prob_{CLASS_NAMES[c]}"]) for r, c in zip(rows, y)])
 assert len(set(paths)) == len(paths), "duplicate images in OOF file"
 
+# ---- how many synthetic images per class
+# err[c] = out-of-fold error rate of class c (1 - recall). With our baseline: meningioma 0.162,
+# glioma 0.038, pituitary 0.031, so confusion-aware plans give meningioma ~70% of the budget.
 k = len(CLASS_NAMES)
 err = np.array([1 - (pred[y == c] == c).mean() for c in range(k)])
 if a.strategy == "untargeted":
     share = np.full(k, 1 / k)
 else:
     share = err / err.sum()
-    share = np.maximum(share, a.min_share)
+    share = np.maximum(share, a.min_share)  # never starve a class completely (default floor 5%)
     share /= share.sum()
 counts = np.floor(share * a.budget).astype(int)
 counts[np.argmax(share)] += a.budget - counts.sum()  # rounding remainder to the largest class
 
+# ---- which training image each synthetic image starts from (its img2img "source")
 rng = np.random.default_rng(a.seed)
 plan = []
 for c in range(k):
-    members = np.flatnonzero(y == c)
+    members = np.flatnonzero(y == c)  # this class's training images
     if a.strategy == "ca_hard":
+        # Hardness weight: 1 - p(true class). A confidently correct image (p = 0.99) gets weight ~0.03;
+        # a misclassified one (p = 0.2) gets 0.82, i.e. ~27x more likely to be picked as a source.
         w = (1 - p_true[members]) + a.hard_floor
     else:
         w = np.ones(len(members))
@@ -64,15 +72,17 @@ for c in range(k):
     for i in pick:
         plan.append({"label": c, "class_name": CLASS_NAMES[c], "source_path": paths[i],
                      "source_pred": int(pred[i]), "source_p_true": round(float(p_true[i]), 4)})
-rng.shuffle(plan)
+rng.shuffle(plan)  # mix classes so a partial run (--limit) still covers all of them
 for n, r in enumerate(plan):
-    r["row"] = n
+    r["row"] = n  # row number = the image's ID; generation seeds its noise with seed + row
 
 a.out.parent.mkdir(parents=True, exist_ok=True)
 with open(a.out, "w", newline="") as f:
     w = csv.DictWriter(f, fieldnames=["row", "label", "class_name", "source_path", "source_pred", "source_p_true"])
     w.writeheader()
     w.writerows(plan)
+# ---- a short summary (<out>.json) to compare plans at a glance: class counts, how many distinct source
+# images were used, and how "hard" the chosen sources are on average.
 src = np.array([r["source_path"] for r in plan])
 lab = np.array([r["label"] for r in plan])
 summary = {

@@ -33,6 +33,7 @@ p.add_argument("--min_gpu_gb", type=float, default=0.0)
 a = p.parse_args()
 
 device = pick_device(a.min_gpu_gb)
+# The checkpoint carries the run's full config, so the right architecture and image size are rebuilt from it.
 ck = torch.load(a.ckpt, map_location=device, weights_only=False)
 cfg = ck["config"]
 model = build_model(cfg["model"], pretrained=False).to(device)
@@ -41,6 +42,7 @@ cache = Cache(a.cache)
 dl = DataLoader(MRIDataset(cache, cache.indices(a.split), make_transform("none", cfg["img_size"])),
                 batch_size=64, shuffle=False, num_workers=4 if device.type == "cuda" else 0)
 amp = torch.bfloat16 if device.type == "cuda" else None
+# Same prediction and metric code as during training, so validation and test numbers are comparable.
 res = predict(model, dl, device, nn.CrossEntropyLoss(), amp)
 m = compute_metrics(res["labels"], res["pred"], cache.groups[res["idx"]], 1000, cfg["seed"])
 m.update(run_name=cfg["run_name"], split=a.split, checkpoint_epoch=ck["epoch"])

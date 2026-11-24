@@ -68,7 +68,13 @@ def parse_args():
 
 @torch.no_grad()
 def precompute_latents(vae, images_u8: np.ndarray, device, flip: bool, bs: int = 16) -> torch.Tensor:
-    """Returns (N, [2,] 4, h, w) scaled latent means in fp16 on CPU (index 1 = horizontally flipped)."""
+    """Returns (N, [2,] 4, h, w) scaled latent means in fp16 on CPU (index 1 = horizontally flipped).
+
+    The VAE is frozen, so each image always encodes to the same latent: encoding once up front (and
+    caching to disk) saves running the VAE at every training step. A 512x512 image becomes a 4x64x64
+    latent. We store the mean of the VAE's latent distribution, scaled by the VAE's scaling factor
+    (0.18215 for SD 1.5) as the UNet expects.
+    """
     out = []
     for i in range(0, len(images_u8), bs):
         x = gray_uint8_to_sd(images_u8[i:i + bs]).to(device, torch.float32)
@@ -79,6 +85,11 @@ def precompute_latents(vae, images_u8: np.ndarray, device, flip: bool, bs: int =
 
 
 def sample_grid(pipe_cls, components, prompts, n, guidance, seed, path, title):
+    """Generate n images per class prompt and save them as one grid image (rows = classes).
+
+    The same seeds are used every time, so grids from step 0, 1000, 2000 ... show the SAME random starting
+    noise being denoised by an increasingly fine-tuned model: differences come from training alone.
+    """
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -140,6 +151,9 @@ def main():
     res = cache.images.shape[-1]
 
     # ---- frozen components
+    # SD 1.5 = tokenizer + CLIP text encoder (prompt -> embedding), VAE (image <-> latent),
+    # UNet (predicts the noise in a noisy latent, given the prompt embedding), and a noise scheduler.
+    # Only small LoRA matrices added to the UNet are trained; everything else stays frozen.
     tok = CLIPTokenizer.from_pretrained(a.model_id, subfolder="tokenizer")
     te = CLIPTextModel.from_pretrained(a.model_id, subfolder="text_encoder", variant="fp16",
                                        torch_dtype=torch.float16).to(device)
@@ -150,10 +164,13 @@ def main():
     for m in (te, vae, unet):
         m.requires_grad_(False)
 
+    # Only 4 distinct prompts exist (3 classes + empty), so their embeddings are computed once here.
     prompts = class_prompts(a.prompt_template)
     emb = encode_prompts(tok, te, prompts + [""], device).to(torch.bfloat16)  # rows 0..2 classes, 3 = empty
 
     # ---- latents (cached on disk, keyed by the exact training images)
+    # The file name includes a hash of the image list, so a different subset (e.g. a low-data run) can never
+    # accidentally reuse latents of other images.
     digest = hashlib.sha256("\n".join(cache.paths[idx]).encode()).hexdigest()[:10]
     key = f"{res}px_n{len(idx)}_flip{int(not a.no_flip)}_{digest}"
     lat_path = (a.latent_cache or run) / f"latents_{key}.pt"
@@ -169,13 +186,21 @@ def main():
     latents = latents.to(device)
 
     # ---- LoRA on the UNet attention projections
+    # LoRA (low-rank adaptation): for each attention weight W, learn a small update B @ A of rank r
+    # (r = 16 here) instead of changing W itself. ~3M trainable numbers instead of ~860M, so it trains fast,
+    # needs little memory, cannot drift far from what SD already knows, and saves as a ~13 MB file.
+    # to_q/to_k/to_v/to_out are the attention projections, including cross-attention to the prompt, which
+    # is where the model learns what "meningioma" vs "glioma" should look like.
     unet.add_adapter(LoraConfig(r=a.rank, lora_alpha=a.rank, init_lora_weights="gaussian",
                                 target_modules=["to_k", "to_q", "to_v", "to_out.0"]))
+    # The frozen UNet runs in bfloat16 to save memory, but the trainable LoRA weights are kept in float32 so
+    # small updates are not lost to rounding.
     cast_training_params(unet, dtype=torch.float32)
-    if a.grad_checkpointing:
+    if a.grad_checkpointing:  # trades extra compute for less GPU memory; only needed on small GPUs
         unet.enable_gradient_checkpointing()
     params = [p for p in unet.parameters() if p.requires_grad]
     opt = torch.optim.AdamW(params, lr=a.lr, weight_decay=1e-2)
+    # Learning-rate multiplier per step: linear warm-up over warmup_steps, times a cosine decay to 0.
     lr_at = lambda s: min(1.0, (s + 1) / a.warmup_steps) * 0.5 * (1 + math.cos(math.pi * s / a.steps))  # noqa: E731
     lr_sched = torch.optim.lr_scheduler.LambdaLR(opt, lr_at)
 
@@ -191,10 +216,13 @@ def main():
              f"{config['n_lora_params'] / 1e6:.2f}M LoRA params, {a.steps} steps x batch {a.batch_size}")
 
     def save_lora(dirname):
+        # Saves only the LoRA weights, in the standard diffusers format that pipe.load_lora_weights() reads.
         sd = convert_state_dict_to_diffusers(get_peft_model_state_dict(unet))
         StableDiffusionPipeline.save_lora_weights(run / dirname, unet_lora_layers=sd, safe_serialization=True)
 
     def samples(step):
+        # Build a temporary generation pipeline around the model being trained (same objects, no copies),
+        # draw the sample grid, then switch back to training. The VAE is moved to fp16 just for decoding.
         unet.eval()
         comps = dict(vae=vae.to(torch.float16), text_encoder=te, tokenizer=tok, unet=unet,
                      scheduler=sched, safety_checker=None, feature_extractor=None, requires_safety_checker=False)
@@ -213,11 +241,19 @@ def main():
     g = torch.Generator(device="cpu").manual_seed(a.seed)
     unet.train()
     t0, run_loss = time.time(), []
+    # One training step of a diffusion model:
+    #   1. take clean latents x0 of a random batch of training images (and their class prompts),
+    #   2. pick a random noise level t for each and make the noisy latent xt = mix of x0 and random noise,
+    #   3. ask the UNet to predict that noise from xt, t and the prompt,
+    #   4. loss = how far the prediction is from the real noise (mean squared error).
+    # Learning to remove noise at every level is what lets the model generate images from pure noise later.
     for step in range(1, a.steps + 1):
-        b = torch.randint(0, len(idx), (a.batch_size,), generator=g)
+        b = torch.randint(0, len(idx), (a.batch_size,), generator=g)  # random images (with replacement)
         view = torch.zeros(a.batch_size, dtype=torch.long) if a.no_flip else torch.randint(0, 2, (a.batch_size,), generator=g)
-        x0 = latents[b.to(device), view.to(device)].float()
+        x0 = latents[b.to(device), view.to(device)].float()  # view 1 = the flipped copy (free augmentation)
         cls = labels[b].clone()
+        # Prompt dropout: sometimes train with the empty prompt. At generation time, classifier-free guidance
+        # compares the prompted and unprompted predictions, so the model must also learn the empty-prompt case.
         cls[torch.rand(a.batch_size, generator=g) < a.drop_prompt_prob] = 3  # empty prompt
         cond = emb[cls.to(device)]
         noise = torch.randn_like(x0)
@@ -226,6 +262,8 @@ def main():
         with torch.autocast("cuda", dtype=torch.bfloat16):
             pred = unet(xt.to(torch.bfloat16), ts, encoder_hidden_states=cond).sample
         if a.snr_gamma > 0:
+            # min-SNR weighting: down-weights the very easy, low-noise timesteps so they do not dominate the
+            # loss. A standard trick that makes diffusion fine-tuning converge faster (Hang et al., 2023).
             snr = compute_snr(sched, ts)
             w = torch.clamp(snr, max=a.snr_gamma) / snr
             loss = (F.mse_loss(pred.float(), noise, reduction="none").mean(dim=[1, 2, 3]) * w).mean()
@@ -233,7 +271,7 @@ def main():
             loss = F.mse_loss(pred.float(), noise)
         opt.zero_grad(set_to_none=True)
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(params, 1.0)
+        torch.nn.utils.clip_grad_norm_(params, 1.0)  # caps rare huge gradients so one bad batch can't derail training
         opt.step()
         lr_sched.step()
         run_loss.append(loss.item())

@@ -1,4 +1,13 @@
-"""Classification metrics, including patient-group bootstrap confidence intervals."""
+"""Classification metrics, including patient-group bootstrap confidence intervals.
+
+Why these metrics:
+- accuracy alone hides class imbalance (glioma is ~46% of the data), so we also report
+- macro-F1: the F1 score of each class averaged with equal weight, our main model-selection metric;
+- per-class precision and recall, and the confusion matrix, to see WHICH tumors are mistaken for which;
+- pair confusion: errors between two classes in both directions, used to choose augmentation targets;
+- 95% confidence intervals by resampling PATIENT GROUPS, because slices from one patient are strongly
+  correlated: resampling individual images would pretend we have more independent evidence than we do.
+"""
 from __future__ import annotations
 
 import numpy as np
@@ -6,10 +15,15 @@ from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, precisio
 
 from . import CLASS_NAMES
 
-LABELS = list(range(len(CLASS_NAMES)))
+LABELS = list(range(len(CLASS_NAMES)))  # [0, 1, 2]; passed explicitly so a missing class still gets a row
 
 
 def compute_metrics(y_true, y_pred, groups=None, n_boot: int = 1000, seed: int = 0) -> dict:
+    """All metrics for one set of predictions, as a JSON-ready dict.
+
+    y_true, y_pred: 0-based class labels per image. groups: patient group per image (enables the
+    bootstrap CIs). n_boot: number of bootstrap resamples (0 = skip).
+    """
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
     p, r, f, s = precision_recall_fscore_support(y_true, y_pred, labels=LABELS, zero_division=0)
@@ -26,6 +40,8 @@ def compute_metrics(y_true, y_pred, groups=None, n_boot: int = 1000, seed: int =
         "pair_confusion": {},
     }
     # Share of the two classes' images that were mistaken for each other (both directions).
+    # Example: meningioma<->glioma = (meningiomas called glioma + gliomas called meningioma)
+    #          divided by (all meningiomas + all gliomas).
     for i in LABELS:
         for j in LABELS:
             if i < j:
@@ -40,10 +56,15 @@ def compute_metrics(y_true, y_pred, groups=None, n_boot: int = 1000, seed: int =
 
 
 def group_bootstrap(y_true, y_pred, groups, n_boot=1000, seed=0) -> dict:
-    """Resample patient groups (not images) with replacement, since slices from one patient are correlated."""
+    """Resample patient groups (not images) with replacement, since slices from one patient are correlated.
+
+    Each resample draws as many groups as there are, with replacement, keeps ALL slices of each drawn
+    group, and recomputes accuracy and macro-F1. The 2.5th and 97.5th percentiles over the resamples form
+    the 95% interval. A wide interval means the result could easily change with a different set of patients.
+    """
     rng = np.random.default_rng(seed)
     uniq = np.unique(groups)
-    members = {g: np.flatnonzero(groups == g) for g in uniq}
+    members = {g: np.flatnonzero(groups == g) for g in uniq}  # group -> indices of its slices
     accs, f1s = [], []
     for _ in range(n_boot):
         pick = rng.choice(uniq, size=len(uniq), replace=True)

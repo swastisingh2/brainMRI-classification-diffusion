@@ -1,5 +1,10 @@
 """Preprocess all 3064 Figshare slices into one .npz cache.
 
+Run once per machine (about 5 minutes). It checks every file's label and patient ID against the split
+CSVs, normalises intensities per image, resizes, and stores images + tumor masks + split info together.
+Use --size 256 for the classifiers (default) and --size 512 for the diffusion model.
+The cache contains the MRI images: keep it out of git.
+
 Example:
     python scripts/build_cache.py /path/to/figshare_data /path/to/cache/cache_256.npz
 """
