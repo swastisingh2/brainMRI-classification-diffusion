@@ -121,6 +121,29 @@ class Cache:
     def indices(self, split: str) -> np.ndarray:
         return np.flatnonzero(self.split == split)
 
+    def append_synthetic(self, path: Path) -> np.ndarray:
+        """Append a generated set (scripts/generate_synthetic.py) as split 'synthetic'; returns its indices.
+
+        Refuses sets whose source images are not training images, so val/test never leak into training.
+        """
+        z = np.load(path, allow_pickle=False)
+        imgs, labels = z["images"], z["labels"].astype(np.int64)
+        if imgs.shape[1:] != self.images.shape[1:]:
+            raise ValueError(f"{path}: image size {imgs.shape[1:]} != cache {self.images.shape[1:]}")
+        train_paths = set(self.paths[self.split == "train"])
+        bad = set(z["source_paths"].astype(str)) - train_paths
+        if bad:
+            raise RuntimeError(f"{path}: {len(bad)} source images are not in the training split, e.g. {sorted(bad)[:3]}")
+        start, n, stem = len(self.labels), len(labels), Path(path).stem
+        self.images = np.concatenate([self.images, imgs])
+        self.masks = np.concatenate([self.masks, np.zeros_like(imgs)])  # synthetic images have no masks
+        self.labels = np.concatenate([self.labels, labels])
+        self.split = np.concatenate([self.split, np.full(n, "synthetic")])
+        self.groups = np.concatenate([self.groups, np.array([f"syn:{stem}"] * n)])
+        self.patient_ids = np.concatenate([self.patient_ids, np.array([""] * n)])
+        self.paths = np.concatenate([self.paths, np.array([f"synthetic/{stem}/{i}" for i in range(n)])])
+        return np.arange(start, start + n)
+
 
 # ---------------------------------------------------------------- transforms
 def make_transform(aug: str, img_size: int = 224):

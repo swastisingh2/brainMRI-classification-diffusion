@@ -63,12 +63,15 @@ def append_registry(path: Path, row: dict):
     with open(path, "a+", newline="") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         f.seek(0)
-        existing = f.read()
-        header = existing.splitlines()[0].split(",") if existing else list(row)
-        w = csv.DictWriter(f, fieldnames=header, extrasaction="ignore")
-        if not existing:
-            w.writeheader()
-        w.writerow(row)
+        old = list(csv.DictReader(f))
+        header = list(old[0]) if old else []
+        header += [k for k in row if k not in header]  # new columns are added, old rows get blanks
+        f.seek(0)
+        f.truncate()
+        w = csv.DictWriter(f, fieldnames=header, restval="")
+        w.writeheader()
+        w.writerows(old + [row])
+        f.flush()
         fcntl.flock(f, fcntl.LOCK_UN)
 
 

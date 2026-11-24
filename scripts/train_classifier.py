@@ -73,6 +73,8 @@ def parse_args():
     p.add_argument("--num_workers", type=int, default=-1, help="-1 = auto")
     p.add_argument("--min_gpu_gb", type=float, default=0.0, help="refuse a CUDA GPU smaller than this (0 = off)")
     p.add_argument("--n_boot", type=int, default=1000)
+    p.add_argument("--synthetic", type=Path, nargs="*", default=[],
+                   help="generated .npz set(s) to add to the TRAINING data (never to val/test)")
     p.add_argument("--tag", default="", help="optional extra text for the run name")
     p.add_argument("--smoke", action="store_true", help="tiny quick run to test the pipeline")
     return p.parse_args()
@@ -156,6 +158,17 @@ def main():
         val_idx = rng.choice(val_idx, 64, replace=False)
         if oof_idx is not None:
             oof_idx = rng.choice(oof_idx, min(64, len(oof_idx)), replace=False)
+    n_real_train = len(train_idx)
+    syn_counts = {}
+    if a.synthetic:
+        if a.fold >= 0:
+            raise ValueError("--synthetic with --fold would leak: synthetic sources can come from the held-out fold.")
+        for sp in a.synthetic:
+            sidx = cache.append_synthetic(sp)
+            if a.smoke:
+                sidx = sidx[:64]
+            train_idx = np.concatenate([train_idx, sidx])
+            syn_counts[sp.stem] = int(len(sidx))
 
     g = torch.Generator().manual_seed(a.seed)
     loader_kw = dict(batch_size=a.batch_size, num_workers=workers, pin_memory=device.type == "cuda",
@@ -171,11 +184,14 @@ def main():
         weights = torch.tensor(counts.sum() / (len(counts) * counts), dtype=torch.float32, device=device)
 
     config = {
-        "run_name": name, **{k: (str(v) if isinstance(v, Path) else v) for k, v in vars(a).items()},
+        "run_name": name,
+        **{k: (str(v) if isinstance(v, Path) else [str(x) for x in v] if isinstance(v, list) else v)
+           for k, v in vars(a).items()},
         "status": "running", "started": datetime.now().isoformat(timespec="seconds"),
         "device": device_name(device), "torch": torch.__version__, "code_version": code_version(),
         "slurm_job_id": slurm_job_id(), "split_version": SPLIT_VERSION, "cache_meta": cache.meta,
-        "n_train": int(len(train_idx)), "n_val": int(len(val_idx)),
+        "n_train": int(len(train_idx)), "n_real_train": int(n_real_train), "synthetic_sets": syn_counts,
+        "n_val": int(len(val_idx)),
         "n_oof": int(len(oof_idx)) if oof_idx is not None else 0,
         "train_class_counts": dict(zip(CLASS_NAMES, counts.tolist())),
         "class_weight_values": weights.tolist() if weights is not None else None,
@@ -286,7 +302,8 @@ def main():
         shutil.copytree(run_dir, a.results_root / name, ignore=shutil.ignore_patterns("*.pt"))
         reg = {
             "run_name": name, "exp": a.exp, "aug": a.aug, "model": a.model, "seed": a.seed, "fold": a.fold,
-            "class_weights": a.class_weights, "smoke": int(a.smoke), "best_epoch": best_epoch,
+            "class_weights": a.class_weights, "smoke": int(a.smoke),
+            "synthetic": "+".join(syn_counts) or "", "n_synthetic": sum(syn_counts.values()), "best_epoch": best_epoch,
             "epochs_run": len(history), "val_acc": round(m["accuracy"], 4), "val_macro_f1": round(m["macro_f1"], 4),
             **{f"val_recall_{c}": round(m["per_class"][c]["recall"], 4) for c in CLASS_NAMES},
             "oof_macro_f1": round(metrics["oof"]["macro_f1"], 4) if "oof" in metrics else "",
