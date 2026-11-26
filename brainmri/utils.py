@@ -2,7 +2,10 @@
 from __future__ import annotations
 
 import csv
-import fcntl
+try:
+    import fcntl
+except ImportError:
+    fcntl = None
 import os
 import random
 import subprocess
@@ -84,18 +87,20 @@ def append_registry(path: Path, row: dict):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "a+", newline="") as f:
-        fcntl.flock(f, fcntl.LOCK_EX)  # wait until no other process is writing
-        f.seek(0)
-        old = list(csv.DictReader(f))
-        header = list(old[0]) if old else []
-        header += [k for k in row if k not in header]  # new columns are added, old rows get blanks
-        f.seek(0)
-        f.truncate()
-        w = csv.DictWriter(f, fieldnames=header, restval="")
-        w.writeheader()
-        w.writerows(old + [row])
-        f.flush()
-        fcntl.flock(f, fcntl.LOCK_UN)
+        if fcntl is not None:
+            fcntl.flock(f, fcntl.LOCK_EX)  # wait until no other process is writing
+            f.seek(0)
+            old = list(csv.DictReader(f))
+            header = list(old[0]) if old else []
+            header += [k for k in row if k not in header]  # new columns are added, old rows get blanks
+            f.seek(0)
+            f.truncate()
+            w = csv.DictWriter(f, fieldnames=header, restval="")
+            w.writeheader()
+            w.writerows(old + [row])
+            f.flush()
+        if fcntl is not None:
+            fcntl.flock(f, fcntl.LOCK_UN)
 
 
 def slurm_job_id() -> str:
