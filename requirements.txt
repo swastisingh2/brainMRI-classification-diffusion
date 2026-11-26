@@ -1,0 +1,11 @@
+# Cluster env: Python 3.12, torch/torchvision from https://download.pytorch.org/whl/cu128
+torch>=2.5
+torchvision>=0.20
+numpy
+h5py
+scikit-learn
+pandas
+matplotlib
+tqdm
+pyyaml
+scipy

@@ -4,3 +4,11 @@ runs/
 __pycache__/
 *.pt
 *.pth
+logs/
+results/
+# Preprocessed caches and synthetic sets contain the MRI images themselves: never commit them.
+cache/
+synthetic/
+*.npz
+CODE_VERSION
+.DS_Store
