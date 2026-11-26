@@ -1,0 +1,38 @@
+{
+  "run_name": "lora_r16_seed0_20261124-164220",
+  "model_id": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "prompt_template": "a contrast-enhanced T1-weighted brain MRI slice showing a {cls} tumor",
+  "train_groups_file": null,
+  "rank": 16,
+  "lr": 0.0001,
+  "steps": 6000,
+  "warmup_steps": 200,
+  "batch_size": 8,
+  "drop_prompt_prob": 0.1,
+  "snr_gamma": 5.0,
+  "no_flip": false,
+  "grad_checkpointing": false,
+  "n_sample_per_class": 6,
+  "guidance": 5.0,
+  "seed": 0,
+  "prompts": [
+    "a contrast-enhanced T1-weighted brain MRI slice showing a meningioma tumor",
+    "a contrast-enhanced T1-weighted brain MRI slice showing a glioma tumor",
+    "a contrast-enhanced T1-weighted brain MRI slice showing a pituitary tumor"
+  ],
+  "n_train_images": 2193,
+  "resolution": 512,
+  "class_counts": {
+    "meningioma": 537,
+    "glioma": 1010,
+    "pituitary": 646
+  },
+  "n_lora_params": 3188736,
+  "torch": "2.11.0+cu128",
+  "code_version": "2148239",
+  "split_version": "splits_v1_provisional",
+  "started": "2026-11-24T16:42:28",
+  "status": "done",
+  "finished": "2026-11-24T17:56:25",
+  "minutes": 73.3
+}
